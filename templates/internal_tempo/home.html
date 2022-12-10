@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Internal Tempo</title>
+</head>
+<body>
+    {# Get Click Form #}
+    <form method="POST" action={% url "home" %}>
+        {% csrf_token %}
+        {{ click_form }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+</html>

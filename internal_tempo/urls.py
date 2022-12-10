@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from metronome.views import set_up_home_form
 
 urlpatterns = [
+    path('', set_up_home_form, name="home"),
     path('admin/', admin.site.urls),
 ]
