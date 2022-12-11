@@ -1,16 +1,18 @@
 import time
 
 from django.shortcuts import render
-from .models import TimeSignature, Tempo, Rate
+from .models import TimeSignature
 from .forms import ClickForm
 from playsound import playsound
+import threading
 
 
-def metronome(request, time_signature, tempo, rate):
+def click(tempo):
     click_path = "C:/Users/ty_bu/Documents/Programming/Django/Personal Projects/internal_tempo/internal_tempo/static/sounds/click.wav"
+    click_time = 60/tempo
     playsound(click_path)
-    time.sleep(2)
-    playsound(click_path)
+    time.sleep(click_time)
+    click(tempo)
 
 
 def set_up_home_form(request):
@@ -28,14 +30,13 @@ def set_up_home_form(request):
                                                                  division=time_signature_division)
 
             # Tempo
-            tempo_bpm = click_form.cleaned_data.get("bpm")
-            tempo = Tempo.objects.get_or_create(bpm=tempo_bpm)
+            tempo = click_form.cleaned_data.get("bpm")
 
             # Rate
-            rate_measures = click_form.cleaned_data.get("measures")
-            rate = Rate.objects.get_or_create(measures=rate_measures)
+            rate = click_form.cleaned_data.get("measures")
             #############################################################################
-            metronome(request, time_signature, tempo, rate)
+
+            click()
 
             return render(request, 'internal_tempo/home.html', {'click_form': click_form})
 
