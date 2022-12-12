@@ -5,12 +5,29 @@
     <title>Internal Tempo</title>
 </head>
 <body>
-    {# Get Click Form #}
+    {# Display Audio File #}
+    <audio id="clickContainer" controls autoplay>
+        <source src="/static/sounds/click.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    {# Display Click Form #}
     <form method="POST" action={% url "home" %}>
         {% csrf_token %}
         {{ click_form }}
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" onclick="playClick()">Submit</button>
     </form>
 
+    {# Click script #}
+    <script>
+        const click = document.getElementById("clickContainer");
+        function playClick(){
+            click.play()
+        }
+
+        click.addEventListener('ended', function() {
+            setTimeout(playClick, 60/{{ tempo }} * 1000);
+        }, false);
+    </script>
 </body>
 </html>
