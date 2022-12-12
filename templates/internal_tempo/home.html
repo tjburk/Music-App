@@ -3,31 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Internal Tempo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '' %}">
 </head>
 <body>
-    {# Display Audio File #}
-    <audio id="clickContainer" controls autoplay>
-        <source src="/static/sounds/click.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <h1>Internal Tempo</h1>
 
-    {# Display Click Form #}
-    <form method="POST" action={% url "home" %}>
-        {% csrf_token %}
-        {{ click_form }}
-        <button type="submit" class="btn btn-primary" onclick="playClick()">Submit</button>
-    </form>
+    <label>Tempo (BPM):
+        <input type="number" id="tempo" value=120 max="500" min="10">
+    </label><br>
+    <label>Rate: Every
+        <input type="number" id="rate" value=1 max="64" min="1"> measure(s)
+    </label><br>
+    <label>Time Signature:
+        <input type="number" id="beats" value=4 max="16" min="1">/
+        <input type="number" id="division" value=4 max="16" min="1">
+    </label><br>
 
-    {# Click script #}
-    <script>
-        const click = document.getElementById("clickContainer");
-        function playClick(){
-            click.play()
-        }
+    {# Click Script #}
+    <script src="/static/scripts/click.js"></script>
 
-        click.addEventListener('ended', function() {
-            setTimeout(playClick, 60/{{ tempo }} * 1000);
-        }, false);
-    </script>
+    <button id="trigger_metronome" onclick="triggerMetronome()">Start Exercise</button>
+
 </body>
 </html>
