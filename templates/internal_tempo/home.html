@@ -7,23 +7,30 @@
     <link rel="stylesheet" href="{% static '' %}">
 </head>
 <body>
-    <h1>Internal Tempo</h1>
-
-    <label>Tempo (BPM):
-        <input type="number" id="tempo" value=120 max="500" min="10">
-    </label><br>
-    <label>Rate: Every
-        <input type="number" id="rate" value=1 max="64" min="1"> measure(s)
-    </label><br>
-    <label>Time Signature:
-        <input type="number" id="beats" value=4 max="16" min="1">/
-        <input type="number" id="division" value=4 max="16" min="1">
-    </label><br>
+    <h1 id="title">Internal Tempo</h1>
+    <form id="metronome_attributes" action="" method="get">
+        <label for="tempo">Tempo (BPM):
+            <input name="bpm" type="number" id="tempo" value=120 max=500 min=10>
+        </label><br>
+        <label for="rate">Rate: Every
+            <input name="rate" type="number" id="rate" value=1 max=64 min=1> measure(s)
+        </label><br>
+        <label>Time Signature:
+            <input name="beats per measure" type="number" id="beats" value=4 max=16 min=1>/
+            <select name="divisions per measure" id="division">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="4" selected>4</option>
+                <option value="8">8</option>
+                <option value="16">16</option>
+            </select>
+        </label><br>
+    </form>
+    <button id="trigger_metronome" onclick="return triggerMetronome()">Start Exercise</button>
 
     {# Click Script #}
     <script src="/static/scripts/click.js"></script>
-
-    <button id="trigger_metronome" onclick="triggerMetronome()">Start Exercise</button>
-
+    {# Valid Script #}
+    <script src="/static/scripts/valid.js"></script>
 </body>
 </html>
