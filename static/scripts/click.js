@@ -1,7 +1,8 @@
 // Set the initial state of the metronome
 let isRunning = false;
 let clickInterval, clickInterval2;
-let click = new Audio("/static/sounds/click.mp3");
+let accentClick = new Audio("/static/sounds/Perc_Castanet_hi.wav");
+let defaultClick = new Audio("/static/sounds/Perc_Castanet_lo.wav");
 
 // Get input boxes
 let tempo = document.getElementById("tempo");
@@ -31,19 +32,19 @@ function triggerMetronome() {
     let countIn = 1;
 
     // Count in
-    playClick(); // First beat of count in
+    playClick(accentClick); // First beat of count in
     clickInterval = setInterval(function () {
       if (countIn < beatsVal) {
-        playClick();
+        playClick(defaultClick);
         countIn++;
       } else {
         // Clear count-in interval
         clearInterval(clickInterval);
 
         // Click according to rate
-        playClick(); // First beat of exercise
+        playClick(accentClick); // First beat of exercise
         clickInterval2 = setInterval(function () {
-          playClick();
+          playClick(accentClick);
         }, rateInterval);
       }
     }, countInterval);
@@ -60,7 +61,7 @@ function triggerMetronome() {
   }
 }
 
-function playClick(){
+function playClick(click){
   click.play();
   click.currentTime = 0;
 }
