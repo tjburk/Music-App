@@ -2,7 +2,6 @@
 let isRunning = false;
 let clickInterval, clickInterval2;
 let click = new Audio("/static/sounds/click.mp3");
-let title = document.getElementById("title");
 
 // Get input boxes
 let tempo = document.getElementById("tempo");
