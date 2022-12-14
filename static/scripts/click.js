@@ -1,6 +1,6 @@
 // Set the initial state of the metronome
 let isRunning = false;
-let clickInterval, clickInterval2;
+let countTimeout, rateTimeout;
 let accentClick = new Audio("/static/sounds/Perc_Castanet_hi.wav");
 let defaultClick = new Audio("/static/sounds/Perc_Castanet_lo.wav");
 
@@ -10,8 +10,12 @@ let rate = document.getElementById("rate");
 let beats = document.getElementById("beats");
 let division = document.getElementById("division");
 
+// Set count in
+let countIn = 1;
+
 // Function to start metronome
 function triggerMetronome() {
+  countIn = 1;
   // Get parameters from input boxes
   let tempoVal = tempo.value;
   let rateVal = rate.value;
@@ -24,30 +28,12 @@ function triggerMetronome() {
 
   // If the metronome is not running, start it
   if (!isRunning) {
-    if(!checkValidity()){
+    if (!checkValidity()) {
       return false;
     }
     document.getElementById("trigger_metronome").innerHTML = "Stop Exercise";
     isRunning = true;
-    let countIn = 1;
-
-    // Count in
-    playClick(accentClick); // First beat of count in
-    clickInterval = setInterval(function () {
-      if (countIn < beatsVal) {
-        playClick(defaultClick);
-        countIn++;
-      } else {
-        // Clear count-in interval
-        clearInterval(clickInterval);
-
-        // Click according to rate
-        playClick(accentClick); // First beat of exercise
-        clickInterval2 = setInterval(function () {
-          playClick(accentClick);
-        }, rateInterval);
-      }
-    }, countInterval);
+    startCountIn(countInterval, rateInterval, beatsVal);
     return true;
   }
 
@@ -55,13 +41,38 @@ function triggerMetronome() {
   else {
     document.getElementById("trigger_metronome").innerHTML = "Start Exercise";
     isRunning = false;
-    clearInterval(clickInterval);
-    clearInterval(clickInterval2);
+    clearTimeout(countTimeout);
+    clearInterval(rateTimeout);
     return false;
   }
 }
 
+function startCountIn(countInterval, rateInterval, beatsVal){
+  // Count in
+  if (countIn <= beatsVal) { // Count in as many beats as time signature
+    if(countIn === 1){ // Play accented beat on first click
+      playClick(accentClick);
+    }
+    else{
+      playClick(defaultClick);
+    }
+    countIn++;
+  }
+  else { // Count in is done
+    startExercise(rateInterval);
+    return;
+  }
+  countTimeout = setTimeout(startCountIn, countInterval, countInterval, rateInterval, beatsVal);
+}
+
+function startExercise(rateInterval){
+  // Click according to rate
+  playClick(accentClick); // First beat of exercise
+  rateTimeout = setTimeout(startExercise, rateInterval, rateInterval);
+}
+
 function playClick(click){
-  click.play();
+  click.pause();
   click.currentTime = 0;
+  click.play();
 }
