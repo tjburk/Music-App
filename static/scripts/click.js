@@ -13,6 +13,13 @@ let division = document.getElementById("division");
 // Set count in
 let countIn = 1;
 
+// Get count in boxes
+let count_text = document.getElementById("count_text");
+let count_1 = document.getElementById("count_1");
+let count_2 = document.getElementById("count_2");
+let count_3 = document.getElementById("count_3");
+let count_4 = document.getElementById("count_4");
+
 // Function to start metronome
 function triggerMetronome() {
   countIn = 1;
@@ -31,34 +38,83 @@ function triggerMetronome() {
     if (!checkValidity()) {
       return false;
     }
+    // Changes button to "Stop"
     document.getElementById("trigger_metronome").innerHTML = "Stop Exercise";
+
+    // Set metronome to running
     isRunning = true;
-    startCountIn(countInterval, rateInterval, beatsVal);
+
+    // Count-in text appears
+    count_text.style.visibility = 'visible';
+    startCountIn(countInterval, rateInterval, beatsVal); // Starts metronome
+
     return true;
   }
 
   // If the metronome is running, stop it
   else {
+    // Hide all text
+    count_text.style.visibility = 'hidden';
+    count_1.style.visibility = 'hidden';
+    count_2.style.visibility = 'hidden';
+    count_3.style.visibility = 'hidden';
+    count_4.style.visibility = 'hidden';
+
+    // Change button back to "Start"
     document.getElementById("trigger_metronome").innerHTML = "Start Exercise";
+
+    // Set boolean
     isRunning = false;
+
+    // Clear timers (stop the clicking)
     clearTimeout(countTimeout);
     clearInterval(rateTimeout);
+
     return false;
   }
 }
 
 function startCountIn(countInterval, rateInterval, beatsVal){
-  // Count in
+  count_text.innerHTML = 'Count In';
+  // Start loop
   if (countIn <= beatsVal) { // Count in as many beats as time signature
     if(countIn === 1){ // Play accented beat on first click
       playClick(accentClick);
+      count_1.style.visibility = 'visible';
+      count_1.innerHTML = countIn;
     }
     else{
+      // Which count in element should be displayed?
+      if(countIn % 4 === 1){ // for 5/X and higher
+        count_4.style.visibility = 'hidden';
+        count_1.innerHTML = countIn;
+        count_1.style.visibility = 'visible';
+      }
+      if(countIn % 4 === 2){
+        count_1.style.visibility = 'hidden';
+        count_2.innerHTML = countIn;
+        count_2.style.visibility = 'visible';
+      }
+      if(countIn % 4 === 3){
+        count_2.style.visibility = 'hidden';
+        count_3.innerHTML = countIn;
+        count_3.style.visibility = 'visible';
+      }
+      if(countIn % 4 === 0){
+        count_3.style.visibility = 'hidden';
+        count_4.innerHTML = countIn;
+        count_4.style.visibility = 'visible';
+      }
       playClick(defaultClick);
     }
     countIn++;
   }
   else { // Count in is done
+    // Hide the count in
+    count_1.style.visibility = 'hidden';
+    count_2.style.visibility = 'hidden';
+    count_3.style.visibility = 'hidden';
+    count_4.style.visibility = 'hidden';
     startExercise(rateInterval);
     return;
   }
@@ -67,6 +123,7 @@ function startCountIn(countInterval, rateInterval, beatsVal){
 
 function startExercise(rateInterval){
   // Click according to rate
+  count_text.innerHTML = 'Clap!';
   playClick(accentClick); // First beat of exercise
   rateTimeout = setTimeout(startExercise, rateInterval, rateInterval);
 }

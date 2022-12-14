@@ -1,3 +1,10 @@
+:root {
+    --themecolor: #027a9f; /* FCB900 */
+    --fontcolor: white;
+    --themecolor-lighter: #038ab6;
+    --themecolor-lightest: #04b2ef;
+}
+
 html {
     background-color: #656565;
     background-image: url("/static/images/metronome.jpg");
@@ -7,8 +14,8 @@ html {
 }
 
 body {
-    height: 100vh;
-    width: 100vh;
+    height: 95vh;
+    width: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,10 +27,11 @@ h1 {
     margin-top: -24px;
     margin-bottom: 24px;
     font-size: 35px;
+    color: var(--fontcolor);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #FCB900;
+    background-image: linear-gradient(to right, var(--themecolor-lightest), var(--themecolor));
     width: 400px;
-    padding: 24px;
+    padding: 10px 5px;
     text-align: center;
     border-radius: 4px;
 }
@@ -33,28 +41,56 @@ h1 {
     flex-direction: column;
     align-items: center;
     width: 400px;
-    padding: 24px;
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 20px;
+    padding: 10px 5px;
     text-align: center;
 }
 
 .trigger_metronome_button {
-    background-color: #FCB900;
+    background-color: var(--themecolor);
     border: none;
     padding: 15px 32px;
+    margin: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-family: "Palatino Linotype", sans-serif;
     font-size: 18px;
-    border-radius: 4px;         /* Rounded edges */
+    color: var(--fontcolor);
+    border-radius: 4px;
 }
 
 .trigger_metronome_button:hover {
-    background-color: #ffc53e;
+    background-color: var(--themecolor-lighter);
+}
+
+.count_text{
+    padding: 0 25px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: var(--fontcolor);
+}
+
+.count_in{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.count{
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--themecolor);
+    margin-left: 12px;
+    margin-right: 12px;
+    padding: 0 25px;
+    font-size: 35px;
+    color: var(--fontcolor);
 }
 
 input[type=number] {
@@ -74,7 +110,7 @@ input[class=rate] {
 }
 
 input[class=beats] {
-    width: 40px;
+    width: 55px;
 }
 
 select{

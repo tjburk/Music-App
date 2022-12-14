@@ -9,27 +9,34 @@
 <body>
     <div class="metronome">
     <h1 id="title">Internal Tempo Practice</h1>
-        <form id="metronome_attributes" action="" method="get">
-            <label for="tempo"><b>Tempo:</b>
-                <input class="tempo" name="bpm" type="number" id="tempo" value=120 max=500 min=10>bpm
-            </label><br>
-            <label for="rate"><b>Rate: </b>Every
-                <input class="rate" name="rate" type="number" id="rate" value=1 max=64 min=1> measure(s)
-            </label><br>
-            <label><b>Time Signature: </b>
-                <input class="beats" name="beats per measure" type="number" id="beats" value=4 max=16 min=1>/
-                <select name="divisions per measure" id="division">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="4" selected>4</option>
-                    <option value="8">8</option>
-                    <option value="16">16</option>
-                </select>
-            </label><br>
-        </form>
+        <label for="tempo">
+            <input class="tempo" name="bpm" type="number" id="tempo" value=120 max=500 min=10>bpm
+        </label>
+        <label for="rate">Every
+            <input class="rate" name="rate" type="number" id="rate" value=1 max=64 min=1> measure(s)
+        </label>
+        <label>
+            <input class="beats" name="beats per measure" type="number" id="beats" value=4 max=16 min=1>/
+            <select name="divisions per measure" id="division">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="4" selected>4</option>
+                <option value="8">8</option>
+                <option value="16">16</option>
+            </select>
+        </label><br>
     </div>
-    <br>
+    {# Button to start/stop #}
     <button class="trigger_metronome_button" id="trigger_metronome" onclick="return triggerMetronome()">Start Exercise</button>
+
+    {# Count in section (numbers and text are controlled in JS) #}
+    <div id="count_text" class="count_text" style="visibility: hidden"></div>
+    <div class="count_in" style="visibility: visible">
+        <div id="count_1" class="count" style="visibility:hidden"></div>
+        <div id="count_2" class="count" style="visibility:hidden"></div>
+        <div id="count_3" class="count" style="visibility:hidden"></div>
+        <div id="count_4" class="count" style="visibility:hidden"></div>
+    </div>
 
     {# Click Script #}
     <script src={% static 'scripts/click.js' %}></script>
