@@ -55,6 +55,7 @@ function triggerMetronome() {
   else {
     // Hide all text
     count_text.style.visibility = 'hidden';
+    count_text.style.opacity = '1'; // Make Count In visible if run again
     count_1.style.visibility = 'hidden';
     count_2.style.visibility = 'hidden';
     count_3.style.visibility = 'hidden';
