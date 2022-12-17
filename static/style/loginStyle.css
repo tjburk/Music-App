@@ -4,4 +4,13 @@
     align-items: center;
     justify-content: right;
     text-align: center;
+    color: white;
+}
+
+.login img{
+    width: 40px;
+}
+
+.login a{
+    color: white;
 }

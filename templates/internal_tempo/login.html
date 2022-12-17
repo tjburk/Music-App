@@ -5,10 +5,11 @@
 {# Login #}
 <div class="login">
     {% if user.is_authenticated %}
-        Welcome, {{ user.username }} !
-        <a href="/accounts/logout"> Logout</a>
+        Welcome, {{ user.username }}! &nbsp;
+        <a href="/accounts/logout/">
+            <img src='{% static 'images/profile_icon.jpg' %}' alt="profile_icon">
+        </a>
     {% else %}
         <a href="{% provider_login_url 'google' %}">Login with Google</a>
-        <br>
     {% endif %}
 </div>
