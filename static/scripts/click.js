@@ -115,6 +115,9 @@ function startCountIn(countInterval, rateInterval, beatsVal){
     count_2.style.visibility = 'hidden';
     count_3.style.visibility = 'hidden';
     count_4.style.visibility = 'hidden';
+    // Prepare Clap animation
+    count_text.innerHTML = 'Clap!';
+    count_text.style.opacity = '0';
     startExercise(rateInterval);
     return;
   }
@@ -123,8 +126,14 @@ function startCountIn(countInterval, rateInterval, beatsVal){
 
 function startExercise(rateInterval){
   // Click according to rate
-  count_text.innerHTML = 'Clap!';
   playClick(accentClick); // First beat of exercise
+
+  // Animation
+  count_text.style.animation = '';
+  void count_text.offsetWidth; // Trigger DOM event to reset animation
+  count_text.style.animation = "fadeOut 2s";
+
+  // Timeout
   rateTimeout = setTimeout(startExercise, rateInterval, rateInterval);
 }
 
