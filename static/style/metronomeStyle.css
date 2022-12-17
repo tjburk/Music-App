@@ -1,52 +1,69 @@
 :root {
-    --themecolor: #027a9f; /* FCB900 */
+    --themecolor-darkest: #013d57;
+    --themecolor-darker: #025275;
+    --themecolor: #0380a1;
+    --themecolor-lighter: #0294c0;
+    --themecolor-lightest: #04b3f1;
     --fontcolor: white;
-    --themecolor-lighter: #038ab6;
-    --themecolor-lightest: #04b2ef;
 }
 
 html {
-    background-color: #656565;
-    background-image: url("/static/images/metronome.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: top center;
+    background-image: linear-gradient(to right, var(--themecolor-darker), var(--themecolor));
 }
 
 body {
-    height: 95vh;
-    width: 95vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     font-family: "Palatino Linotype", sans-serif;
 }
 
-h1 {
-    margin-top: -24px;
-    margin-bottom: 24px;
-    font-size: 35px;
-    color: var(--fontcolor);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(to right, var(--themecolor-lightest), var(--themecolor));
-    width: 400px;
-    padding: 10px 5px;
-    text-align: center;
-    border-radius: 4px;
-}
+/*h1 {*/
+/*    margin-top: -24px;*/
+/*    margin-bottom: 24px;*/
+/*    font-size: 35px;*/
+/*    color: var(--fontcolor);*/
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+/*    background-image: linear-gradient(to right, var(--themecolor-lighter), var(--themecolor-lightest));*/
+/*    width: 400px;*/
+/*    padding: 10px 5px;*/
+/*    text-align: center;*/
+/*    border-radius: 4px;*/
+/*}*/
 
-.metronome {
+.center {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 400px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 3%;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.controls hr{
+    width: 100%;
+}
+
+.metronome{ /* Image and control board */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 20px;
     padding: 10px 5px;
-    text-align: center;
+}
+
+.metronome img{
+    width: 200px;
 }
 
 .trigger_metronome_button {

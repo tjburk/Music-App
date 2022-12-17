@@ -1,0 +1,14 @@
+{% load socialaccount %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/loginStyle.css' %}">
+
+{# Login #}
+<div class="login">
+    {% if user.is_authenticated %}
+        Welcome, {{ user.username }} !
+        <a href="/accounts/logout"> Logout</a>
+    {% else %}
+        <a href="{% provider_login_url 'google' %}">Login with Google</a>
+        <br>
+    {% endif %}
+</div>
