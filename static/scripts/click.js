@@ -1,6 +1,6 @@
 // Set the initial state of the metronome
 let isRunning = false;
-let countTimeout, rateTimeout;
+let setUpTimeout, countTimeout, rateTimeout;
 let accentClick = new Audio("/static/sounds/clicks/Perc_MetronomeQuartz_hi.wav");
 let defaultClick = new Audio("/static/sounds/clicks/Perc_MetronomeQuartz_lo.wav");
 let select_click = document.getElementById("select_click");
@@ -22,7 +22,7 @@ let count_4 = document.getElementById("count_4");
 
 // Function to start metronome
 function triggerMetronome() {
-  countIn = 0;
+  countIn = 1;
   // Get parameters from input boxes
   let tempoVal = tempo.value;
   let rateVal = rate.value;
@@ -45,7 +45,7 @@ function triggerMetronome() {
 
     // Count-in text appears
     count_text.style.visibility = 'visible';
-    startCountIn(countInterval, rateInterval, beatsVal); // Starts metronome
+    setUpCountIn(countInterval, rateInterval, beatsVal); // Starts metronome
 
     return true;
   }
@@ -68,11 +68,21 @@ function triggerMetronome() {
     isRunning = false;
 
     // Clear timers (stop the clicking)
+    clearTimeout(setUpTimeout);
     clearTimeout(countTimeout);
-    clearInterval(rateTimeout);
+    clearTimeout(rateTimeout);
 
     return false;
   }
+}
+
+// Play silent beat to set up audio
+function setUpCountIn(countInterval, rateInterval, beatsVal){
+  count_text.innerHTML = 'Get Ready...';
+  accentClick.volume = 0;
+  accentClick.play();
+  // Starts count in after one second
+  setUpTimeout = setTimeout(startCountIn, 750, countInterval, rateInterval, beatsVal);
 }
 
 function startCountIn(countInterval, rateInterval, beatsVal){
@@ -80,11 +90,7 @@ function startCountIn(countInterval, rateInterval, beatsVal){
   accentClick.volume = 1;
   // Start loop
   if (countIn <= beatsVal) { // Count in as many beats as time signature
-    if (countIn === 0){
-      accentClick.volume = 0;
-      accentClick.play();
-    }
-    else if(countIn === 1){ // Play accented beat on first click
+    if(countIn === 1){ // Play accented beat on first click
       playClick(accentClick);
       count_1.style.visibility = 'visible';
       count_1.innerHTML = countIn;
@@ -148,6 +154,8 @@ function playClick(click){
   click.play();
 }
 
+
+// Change Click
 select_click.addEventListener("change", changeClick);
 
 function changeClick(){
