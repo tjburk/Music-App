@@ -11,8 +11,22 @@
 <body>
     <div class="center">
         {# Metronome Controls #}
-        <div class="metronome">
-            <img src="{% static 'images/metronome.jpg' %}" alt="Metronome">
+        <div class="console">
+            <div class="metronome">
+                <img src="{% static 'images/metronome.jpg' %}" alt="Metronome">
+                <select name="select_click" id="select_click">
+                    <option value="Can">Can</option>
+                    <option value="Castanet">Castanet</option>
+                    <option value="Clap">Clap</option>
+                    <option value="Glass">Glass</option>
+                    <option value="Metal">Metal</option>
+                    <option value="Metronome" selected>Metronome</option>
+                    <option value="Music Stand">Music Stand</option>
+                    <option value="Practice Pad">Practice Pad</option>
+                    <option value="Snap">Snap</option>
+                    <option value="Trash Can">Trash Can</option>
+                </select>
+            </div>
             <div class="controls">
                 <label for="tempo">
                     <input class="tempo" name="bpm" type="number" id="tempo" value=120 max=500 min=10>bpm

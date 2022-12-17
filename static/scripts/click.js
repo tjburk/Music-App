@@ -1,17 +1,17 @@
 // Set the initial state of the metronome
 let isRunning = false;
 let countTimeout, rateTimeout;
-let accentClick = new Audio("/static/sounds/Perc_Castanet_hi.wav");
-let defaultClick = new Audio("/static/sounds/Perc_Castanet_lo.wav");
+let accentClick = new Audio("/static/sounds/clicks/Perc_MetronomeQuartz_hi.wav");
+let defaultClick = new Audio("/static/sounds/clicks/Perc_MetronomeQuartz_lo.wav");
+let select_click = document.getElementById("select_click");
 
 // Get input boxes
 let tempo = document.getElementById("tempo");
 let rate = document.getElementById("rate");
 let beats = document.getElementById("beats");
-let division = document.getElementById("division");
 
 // Set count in
-let countIn = 1;
+let countIn;
 
 // Get count in boxes
 let count_text = document.getElementById("count_text");
@@ -22,12 +22,11 @@ let count_4 = document.getElementById("count_4");
 
 // Function to start metronome
 function triggerMetronome() {
-  countIn = 1;
+  countIn = 0;
   // Get parameters from input boxes
   let tempoVal = tempo.value;
   let rateVal = rate.value;
   let beatsVal = beats.value;
-  let divisionVal = division.value;
 
   // Set the interval (in milliseconds) at which the metronome should tick
   let rateInterval = 60000 / tempoVal * rateVal * beatsVal;
@@ -56,6 +55,7 @@ function triggerMetronome() {
     // Hide all text
     count_text.style.visibility = 'hidden';
     count_text.style.opacity = '1'; // Make Count In visible if run again
+    count_text.style.animation = ''; // Remove animation in case partly faded
     count_1.style.visibility = 'hidden';
     count_2.style.visibility = 'hidden';
     count_3.style.visibility = 'hidden';
@@ -77,9 +77,14 @@ function triggerMetronome() {
 
 function startCountIn(countInterval, rateInterval, beatsVal){
   count_text.innerHTML = 'Count In';
+  accentClick.volume = 1;
   // Start loop
   if (countIn <= beatsVal) { // Count in as many beats as time signature
-    if(countIn === 1){ // Play accented beat on first click
+    if (countIn === 0){
+      accentClick.volume = 0;
+      accentClick.play();
+    }
+    else if(countIn === 1){ // Play accented beat on first click
       playClick(accentClick);
       count_1.style.visibility = 'visible';
       count_1.innerHTML = countIn;
@@ -139,7 +144,63 @@ function startExercise(rateInterval){
 }
 
 function playClick(click){
-  click.pause();
   click.currentTime = 0;
   click.play();
+}
+
+select_click.addEventListener("change", changeClick);
+
+function changeClick(){
+  switch(select_click.value) {
+    case 'Can':
+      accentClick = new Audio("/static/sounds/clicks/Perc_Can_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_Can_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Castanet':
+      accentClick = new Audio("/static/sounds/clicks/Perc_Castanet_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_Castanet_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Clap':
+      accentClick = new Audio("/static/sounds/clicks/Perc_Clap_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_Clap_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Glass':
+      accentClick = new Audio("/static/sounds/clicks/Perc_Glass_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_Glass_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Metal':
+      accentClick = new Audio("/static/sounds/clicks/Perc_Metal_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_Metal_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Metronome':
+      accentClick = new Audio("/static/sounds/clicks/Perc_MetronomeQuartz_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_MetronomeQuartz_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Music Stand':
+      accentClick = new Audio("/static/sounds/clicks/Perc_MusicStand_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_MusicStand_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Practice Pad':
+      accentClick = new Audio("/static/sounds/clicks/Perc_PracticePad_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_PracticePad_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Snap':
+      accentClick = new Audio("/static/sounds/clicks/Perc_Snap_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_Snap_lo.wav");
+      playClick(accentClick);
+      break;
+    case 'Trash Can':
+      accentClick = new Audio("/static/sounds/clicks/Perc_TrashCan_hi.wav");
+      defaultClick = new Audio("/static/sounds/clicks/Perc_TrashCan_lo.wav");
+      playClick(accentClick);
+      break;
+  }
 }

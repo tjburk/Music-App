@@ -15,19 +15,6 @@ body {
     font-family: "Palatino Linotype", sans-serif;
 }
 
-/*h1 {*/
-/*    margin-top: -24px;*/
-/*    margin-bottom: 24px;*/
-/*    font-size: 35px;*/
-/*    color: var(--fontcolor);*/
-/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
-/*    background-image: linear-gradient(to right, var(--themecolor-lighter), var(--themecolor-lightest));*/
-/*    width: 400px;*/
-/*    padding: 10px 5px;*/
-/*    text-align: center;*/
-/*    border-radius: 4px;*/
-/*}*/
-
 .center {
     display: flex;
     flex-direction: column;
@@ -35,6 +22,19 @@ body {
     justify-content: center;
     text-align: center;
     margin-top: 3%;
+}
+
+.metronome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.metronome select {  /* Click sound select */
+    font-size: 20px;
 }
 
 .controls {
@@ -46,11 +46,19 @@ body {
     padding: 0 5%;
 }
 
+.controls input {
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
 .controls hr{
     width: 100%;
 }
 
-.metronome{ /* Image and control board */
+.console { /* Image and control board */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -62,8 +70,8 @@ body {
     padding: 10px 5px;
 }
 
-.metronome img{
-    width: 200px;
+.console img{
+    width: 150px;
 }
 
 .trigger_metronome_button {
