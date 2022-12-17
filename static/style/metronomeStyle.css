@@ -46,12 +46,21 @@ body {
     padding: 0 5%;
 }
 
+/* Adds border around input */
+.controls select {
+    outline: solid thin;
+    margin: 0 5px;
+}
 .controls input {
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
+    outline: solid thin;
+    margin: 0 5px;
+}
+
+/* Removes arrows */
+.controls input::-webkit-outer-spin-button,
+.controls input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .controls hr{
@@ -72,6 +81,12 @@ body {
 
 .console img{
     width: 150px;
+}
+
+/* Adds border around click select */
+.console select {
+    outline: solid thin;
+    margin: 0 5px;
 }
 
 .trigger_metronome_button {
