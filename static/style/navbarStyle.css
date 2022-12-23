@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 5px 0 black;
+    height: 40px;
+    top: 0;
+    margin: 0;
+}
+
+.home{
+    display: block;
+    margin-right: 40%;
+    margin-left: 2%;
+}
+
+.home button{
+    text-align: center;
+    height: 40px;
+    padding: 5px;
+    background-color: white;
+    border: none;
+    font-size: 15px;
+}
+
+.home button:hover{
+    background-color: #d3d3d3;
+}
+
+.login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+}
+
+.login img {
+    height: 40px;
+    width: 40px;
+}
