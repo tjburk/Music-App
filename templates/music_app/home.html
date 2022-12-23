@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music App Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/homeStyle.css' %}">
+</head>
+{% include 'music_app/navbar.html' %}
+<body>
+    <a href="{% url "internal_tempo" %}">Internal Tempo</a>
+</body>
+</html>
