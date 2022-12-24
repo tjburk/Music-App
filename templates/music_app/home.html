@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <title>Music App Home</title>
     {% load static %}
+    <link rel="icon" href="{% static 'images/music_note.png' %}">
     <link rel="stylesheet" href="{% static 'style/homeStyle.css' %}">
 </head>
-{% include 'music_app/navbar.html' %}
 <body>
-    <a href="{% url "internal_tempo" %}">Internal Tempo</a>
+    {% include 'music_app/navbar.html' %}
+    <div class="panels">
+        <div class="left">
+            <a href="{% url "internal_tempo" %}">
+                <img src="{% static "images/metronome.jpg" %}">
+            </a>
+            <p>Improve your internal sense of time by clapping along to a sparse metronome click.</p>
+        </div>
+        <div class="middle">
+
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
 </body>
 </html>
