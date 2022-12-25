@@ -1,7 +1,7 @@
 @import './root.css';
 
 html {
-    background-image: linear-gradient(to right, var(--tempothemecolor-darker), var(--tempothemecolor));
+    background-image: linear-gradient(to right, var(--pitchthemecolor-darker), var(--pitchthemecolor));
 }
 
 body {
@@ -19,7 +19,7 @@ body {
     margin-top: 3%;
 }
 
-.metronome {
+.music_note {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +28,7 @@ body {
     padding: 0 5%;
 }
 
-.metronome select {  /* Click sound select */
+.music_note select { /* Mode select */
     font-size: 20px;
 }
 
@@ -41,25 +41,31 @@ body {
     padding: 0 5%;
 }
 
-/* Adds border around input */
-.controls select {
-    outline: solid thin;
-    margin: 0 5px;
-}
-.controls input {
-    outline: solid thin;
-    margin: 0 5px;
+.controls button{
+    border: solid thin;
+    margin: 3px 5px;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: white;
+    border-radius: 4px;
 }
 
-/* Removes arrows */
-.controls input::-webkit-outer-spin-button,
-.controls input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.controls button:hover {
+    background-color: #dadada;
 }
 
 .controls hr{
     width: 100%;
+}
+
+/* Button rows */
+.wrapper {
+    display: flex;
+    flex-direction: row;
 }
 
 .console { /* Image and control board */
@@ -72,20 +78,21 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 20px;
     padding: 10px 5px;
+    width: 40%;
 }
 
 .console img{
     width: 150px;
 }
 
-/* Adds border around click select */
+/* Adds border around mode select */
 .console select {
     outline: solid thin;
     margin: 0 5px;
 }
 
-.trigger_metronome_button {
-    background-color: var(--tempothemecolor);
+.start_exercise_button {
+    background-color: var(--pitchthemecolor-darker);
     border: none;
     padding: 15px 32px;
     margin: 15px;
@@ -98,60 +105,32 @@ body {
     border-radius: 4px;
 }
 
-.trigger_metronome_button:hover {
-    background-color: var(--tempothemecolor-lighter);
+.start_exercise_button:hover {
+    background-color: #b69f04;
 }
 
-.count_text{
-    padding: 0 25px;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 5px;
-    color: var(--fontcolor);
-    animation: '';
-}
-
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-.count_in{
+.interval_answers{
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }
 
-.count{
+.interval_answers button{
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: var(--tempothemecolor);
-    margin-left: 12px;
-    margin-right: 12px;
-    padding: 0 25px;
-    font-size: 35px;
-    color: var(--fontcolor);
+    background-color: white;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 5px 10px;
+    font-size: 19px;
+    color: black;
+    border: solid thin;
 }
 
-input[type=number] {
-    border: none;
-    border-radius: 4px;
-    font-family: "Palatino Linotype", sans-serif;
-    font-size: 40px;
-    text-align: center;
-}
-
-input[class=tempo] {
-    width: 80px;
-}
-
-input[class=rate] {
-    width: 60px;
-}
-
-input[class=beats] {
-    width: 55px;
+.interval_answers button:hover {
+    background-color: #dadada;
 }
 
 select{

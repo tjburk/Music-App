@@ -1,0 +1,21 @@
+:root {
+    --tempothemecolor-darkest: #013d57;
+    --tempothemecolor-darker: #025275;
+    --tempothemecolor: #0380a1;
+    --tempothemecolor-lighter: #0294c0;
+    --tempothemecolor-lightest: #04b3f1;
+
+    --exercisethemecolor-darkest: #810202;
+    --exercisethemecolor-darker: #ab0404;
+    --exercisethemecolor: #ff4646;
+    --exercisethemecolor-lighter: #ff7b7b;
+    --exercisethemecolor-lightest: #ff9090;
+
+    --pitchthemecolor-darkest: #816e02;
+    --pitchthemecolor-darker: #a28d03;
+    --pitchthemecolor: #e5d201;
+    --pitchthemecolor-lighter: #fff319;
+    --pitchthemecolor-lightest: #fff44d;
+
+    --fontcolor: white;
+}

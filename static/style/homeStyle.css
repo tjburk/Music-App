@@ -1,28 +1,11 @@
-:root {
-    --tempothemecolor-darkest: #013d57;
-    --tempothemecolor-darker: #025275;
-    --tempothemecolor: #0380a1;
-    --tempothemecolor-lighter: #0294c0;
-    --tempothemecolor-lightest: #04b3f1;
-
-    --exercisethemecolor-darkest: #810202;
-    --exercisethemecolor-darker: #ab0404;
-    --exercisethemecolor: #ff4646;
-    --exercisethemecolor-lighter: #ff7b7b;
-    --exercisethemecolor-lightest: #ff9090;
-
-    --pitchthemecolor-darkest: #bea400;
-    --pitchthemecolor-darker: #d0b514;
-    --pitchthemecolor: #ffe300;
-    --pitchthemecolor-lighter: #fff319;
-    --pitchthemecolor-lightest: #fff44d;
-}
+@import './root.css';
 
 body {
     font-family: "Palatino Linotype", sans-serif;
-    color: white;
+    font-size: 20px;
     margin: 0;
     height: 92vh;
+    color: white;
 }
 
 .panels {
@@ -59,6 +42,10 @@ body {
     background-image: linear-gradient(to right, var(--exercisethemecolor-darker), var(--exercisethemecolor));
 }
 
+.middle img {
+    width: 150px;
+}
+
 .right {
     display: flex;
     flex-direction: column;
@@ -67,4 +54,12 @@ body {
     width: 33.333%;
     overflow: hidden;
     background-image: linear-gradient(to right, var(--pitchthemecolor-darker), var(--pitchthemecolor));
+}
+
+.right img {
+    width: 150px;
+}
+
+p {
+    width: 300px;
 }

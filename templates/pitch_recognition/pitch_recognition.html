@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Internal Tempo</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/music_note.png' %}">
+    <link rel="stylesheet" href="{% static 'style/pitch_recognitionStyle.css' %}">
+</head>
+{% include 'music_app/navbar.html' %}
+<body>
+    <div class="center">
+        {# Control Box #}
+        <div class="console">
+            <div class="music_note">
+                <img src="{% static 'images/music_note.png' %}" alt="Music Note">
+                <select name="select_mode" id="select_mode">
+                    <option value="Ascending">Ascending</option>
+                    <option value="Descending">Descending</option>
+                </select>
+            </div>
+            <div class="controls">
+                Select Interval Groups
+                <hr>
+                <div class="wrapper">
+                    <button class="Min 2nds">Min 2nds</button>
+                    <button class="Maj 2nds">Maj 2nds</button>
+                </div>
+                <div class="wrapper">
+                    <button class="Min 3rds">Min 3rds</button>
+                    <button class="Maj 3rds">Maj 3rds</button>
+                </div>
+                <div class="wrapper">
+                    <button class="Perfect 4ths">Perfect 4ths</button>
+                    <button class="Aug 4ths/Dim 5ths">Aug 4ths/ Dim 5ths</button>
+                    <button class="Perfect 5ths">Perfect 5ths</button>
+                </div>
+                <div class="wrapper">
+                    <button class="Min 6ths">Min 6ths</button>
+                    <button class="Maj 6ths">Maj 6ths</button>
+                </div>
+                <div class="wrapper">
+                    <button class="Min 7ths">Min 7ths</button>
+                    <button class="Maj 7ths">Maj 7ths</button>
+                </div>
+                <button class="Octaves">Octaves</button>
+            </div>
+        </div>
+        {# Button to start/stop #}
+        <button class="start_exercise_button" id="start_exercise" onclick="return triggerMetronome()">Start Exercise</button>
+
+        {# Interval display section (answers that appear based on selection above) #}
+        <div class="interval_answers">
+            <button id="Min 2nd" hidden>Min 2nd</button>
+            <button id="Maj 2nd" hidden>Maj 2nd</button>
+            <button id="Min 3rd" hidden>Min 3rd</button>
+            <button id="Maj 3rd" hidden>Maj 3rd</button>
+            <button id="Perfect 4th" hidden>Perfect 4th</button>
+            <button id="Aug 4th/Dim 5th" hidden>Aug 4th/Dim 5th</button>
+            <button id="Perfect 5th" hidden>Perfect 5th</button>
+            <button id="Min 6th" hidden>Min 6th</button>
+            <button id="Maj 6th" hidden>Maj 6th</button>
+            <button id="Min 7th" hidden>Min 7th</button>
+            <button id="Maj 7th" hidden>Maj 7th</button>
+            <button id="Octave" hidden>Octave</button>
+        </div>
+    </div>
+
+    {# Click Script #}
+    <script src={% static 'scripts/click.js' %}></script>
+    {# Valid Script #}
+    <script src={% static 'scripts/valid.js' %}></script>
+</body>
+</html>
