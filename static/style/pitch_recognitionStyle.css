@@ -28,10 +28,6 @@ body {
     padding: 0 5%;
 }
 
-.interval img {
-    margin-bottom: 10px;
-}
-
 .interval select { /* Mode select */
     font-size: 20px;
 }

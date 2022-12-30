@@ -57,7 +57,9 @@ body {
 }
 
 .right img {
-    width: 250px;
+    width: 150px;
+    height: 230px;
+    background-color: white;
 }
 
 p {
