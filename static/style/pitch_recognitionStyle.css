@@ -19,7 +19,7 @@ body {
     margin-top: 3%;
 }
 
-.music_note {
+.interval {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +28,11 @@ body {
     padding: 0 5%;
 }
 
-.music_note select { /* Mode select */
+.interval img {
+    margin-bottom: 10px;
+}
+
+.interval select { /* Mode select */
     font-size: 20px;
 }
 
