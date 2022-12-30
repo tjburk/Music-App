@@ -9,6 +9,7 @@ let repeat_button = document.getElementById("repeat");
 
 let random_note_val = 0;
 let next_note_val = 0;
+let interval = 0;
 
 function triggerInterval(){
     if(selected_intervals.length === 0){
@@ -27,7 +28,7 @@ function triggerInterval(){
         answer_section.style.display = "block"; // Makes answer section visible when running
         repeat_button.style.visibility = "visible"; // Makes repeat button visible when running
 
-        startExercise();
+        startExercise(0);
     }
     // Stop exercise
     else {
@@ -90,11 +91,33 @@ function selectInterval(steps){
     }
 }
 
-async function startExercise(){
+async function startExercise(answer){
+    // Selected interval choice
+    let display_id = answer + " display";
+    let selected = document.getElementById(display_id);
+
+    // Correct interval choice
+    let correct_id = interval + " display";
+    let correct = document.getElementById(correct_id);
+
+    if(answer !== 0){ // 0 = First time starting exercise (no answer selected)
+        if(answer === interval){ // Answer is correct
+            selected.style.backgroundColor = "green"; // Set selected answer selection background to green
+        }
+        else{ // Answer is incorrect
+            selected.style.backgroundColor = "red"; // Set selected answer selection background to red
+            correct.style.backgroundColor = "green"; // Set correct answer selection background to green
+        }
+
+        await sleep(1000); // Wait one second
+        selected.style.backgroundColor = ""; // Reset selected background
+        correct.style.backgroundColor = ""; // Reset correct background
+    }
+
+
     // Get a random one of the selected intervals
     let random_index = Math.floor(Math.random() * selected_intervals.length); // If length is 3, returns 0, 1, or 2
-    let interval = selected_intervals[random_index];
-
+    interval = selected_intervals[random_index];
     if(select_mode.value === "Ascending"){
         // Get a random starting note
         random_note_val = Math.floor(Math.random() * (24 - interval)) + 1; // Random number 1 to (24 - interval range)
