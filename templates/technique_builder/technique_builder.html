@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technique Builder</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/music_note.png' %}">
+    <link rel="stylesheet" href="{% static 'style/technique_builderStyle.css' %}">
+</head>
+{% include 'music_app/navbar.html' %}
+<body>
+    <div class="center">
+        {# Metronome Controls #}
+        <div class="console">
+            <div class="metronome">
+                <img src="{% static 'images/metronome.jpg' %}" alt="Metronome">
+                <select name="select_click" id="select_click">
+                    <option value="Can">Can</option>
+                    <option value="Castanet">Castanet</option>
+                    <option value="Clap">Clap</option>
+                    <option value="Glass">Glass</option>
+                    <option value="Metal">Metal</option>
+                    <option value="Metronome" selected>Metronome</option>
+                    <option value="Music Stand">Music Stand</option>
+                    <option value="Practice Pad">Practice Pad</option>
+                    <option value="Snap">Snap</option>
+                    <option value="Trash Can">Trash Can</option>
+                </select>
+            </div>
+            <div class="controls">
+                <label for="tempo">
+                    <input class="tempo" name="bpm" type="number" id="tempo" value=120 max=500 min=10>bpm
+                </label>
+                <hr>
+                <label for="rate">Every
+                    <input class="rate" name="rate" type="number" id="rate" value=1 max=64 min=1> measure(s)
+                </label>
+                <hr>
+                <label>
+                    <input class="beats" name="beats per measure" type="number" id="beats" value=4 max=16 min=1>/
+                    <select name="divisions per measure" id="division">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="4" selected>4</option>
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        {# Button to start/stop #}
+        <button class="trigger_metronome_button" id="trigger_metronome" onclick="return triggerMetronome()">Start Exercise</button>
+
+        {# Count in section (numbers and text are controlled in JS) #}
+        <div id="count_text" class="count_text" style="visibility: hidden"></div>
+        <div class="count_in" style="visibility: visible">
+            <div id="count_1" class="count" style="visibility:hidden"></div>
+            <div id="count_2" class="count" style="visibility:hidden"></div>
+            <div id="count_3" class="count" style="visibility:hidden"></div>
+            <div id="count_4" class="count" style="visibility:hidden"></div>
+        </div>
+    </div>
+
+    {# Click Script #}
+    <script src={% static 'scripts/click.js' %}></script>
+    {# Valid Script #}
+    <script src={% static 'scripts/valid.js' %}></script>
+</body>
+</html>

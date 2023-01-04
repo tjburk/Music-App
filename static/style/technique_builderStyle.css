@@ -1,0 +1,163 @@
+@import './root.css';
+
+html {
+    background-image: linear-gradient(to right, var(--techniquethemecolor-darker), var(--techniquethemecolor));
+}
+
+body {
+    font-family: "Palatino Linotype", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 3%;
+}
+
+.metronome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.metronome select {  /* Click sound select */
+    font-size: 20px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+}
+
+/* Adds border around input */
+.controls select {
+    outline: solid thin;
+    margin: 0 5px;
+}
+.controls input {
+    outline: solid thin;
+    margin: 0 5px;
+}
+
+/* Removes arrows */
+.controls input::-webkit-outer-spin-button,
+.controls input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.controls hr{
+    width: 100%;
+}
+
+.console { /* Image and control board */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    padding: 10px 5px;
+}
+
+.console img{
+    width: 150px;
+}
+
+/* Adds border around click select */
+.console select {
+    outline: solid thin;
+    margin: 0 5px;
+}
+
+.trigger_metronome_button {
+    background-color: var(--tempothemecolor);
+    border: none;
+    padding: 15px 32px;
+    margin: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Palatino Linotype", sans-serif;
+    font-size: 18px;
+    color: var(--fontcolor);
+    border-radius: 4px;
+}
+
+.trigger_metronome_button:hover {
+    background-color: var(--tempothemecolor-lighter);
+}
+
+.count_text{
+    padding: 0 25px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: var(--fontcolor);
+    animation: '';
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.count_in{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.count{
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--tempothemecolor);
+    margin-left: 12px;
+    margin-right: 12px;
+    padding: 0 25px;
+    font-size: 35px;
+    color: var(--fontcolor);
+}
+
+input[type=number] {
+    border: none;
+    border-radius: 4px;
+    font-family: "Palatino Linotype", sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+input[class=tempo] {
+    width: 80px;
+}
+
+input[class=rate] {
+    width: 60px;
+}
+
+input[class=beats] {
+    width: 55px;
+}
+
+select{
+    border: none;
+    border-radius: 4px;
+    font-family: "Palatino Linotype", sans-serif;
+    font-size: 40px;
+    text-align: center;
+}

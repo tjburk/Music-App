@@ -39,11 +39,11 @@ body {
     overflow: hidden;
     border-right: solid black;
     border-left: solid black;
-    background-image: linear-gradient(to right, var(--exercisethemecolor-darker), var(--exercisethemecolor));
+    background-image: linear-gradient(to right, var(--techniquethemecolor-darker), var(--techniquethemecolor));
 }
 
 .middle img {
-    width: 150px;
+    width: 250px;
 }
 
 .right {
