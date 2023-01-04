@@ -1,5 +1,14 @@
-# Internal-Tempo
+# Music-App
+A web app built in Django that utilizes a Javascript frontend in order to provide an interface for musicians to practice the three primary elements of musicianship: tempo, technique, and pitch.<br>
+
+### Internal Tempo
 An application for musicians to help improve their internal sense of time by providing custom exercises based around a sparse metronome click.
+
+### Technique Builder
+Work in progress...
+
+### Interval Recognition
+An application for musicians to help improve thier melodic and harmonic dictation by allowing for custom interval identification and answer selection.
 
 # Information
 The functionality for the metronome is all built into the Javascript for the webpage. Django is merely the host for the page.
