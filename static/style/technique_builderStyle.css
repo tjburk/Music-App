@@ -74,18 +74,8 @@ body {
     padding: 10px 5px;
 }
 
-.console img{
-    width: 150px;
-}
-
-/* Adds border around click select */
-.console select {
-    outline: solid thin;
-    margin: 0 5px;
-}
-
-.trigger_metronome_button {
-    background-color: var(--tempothemecolor);
+.trigger_workout_button {
+    background-color: var(--techniquethemecolor);
     border: none;
     padding: 15px 32px;
     margin: 15px;
@@ -98,8 +88,8 @@ body {
     border-radius: 4px;
 }
 
-.trigger_metronome_button:hover {
-    background-color: var(--tempothemecolor-lighter);
+.trigger_workout_button:hover {
+    background-color: var(--techniquethemecolor-lighter);
 }
 
 .count_text{
@@ -108,12 +98,6 @@ body {
     margin-top: 30px;
     margin-bottom: 5px;
     color: var(--fontcolor);
-    animation: '';
-}
-
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
 }
 
 .count_in{
@@ -126,38 +110,10 @@ body {
 .count{
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: var(--tempothemecolor);
+    background-color: var(--techniquethemecolor);
     margin-left: 12px;
     margin-right: 12px;
     padding: 0 25px;
     font-size: 35px;
     color: var(--fontcolor);
-}
-
-input[type=number] {
-    border: none;
-    border-radius: 4px;
-    font-family: "Palatino Linotype", sans-serif;
-    font-size: 40px;
-    text-align: center;
-}
-
-input[class=tempo] {
-    width: 80px;
-}
-
-input[class=rate] {
-    width: 60px;
-}
-
-input[class=beats] {
-    width: 55px;
-}
-
-select{
-    border: none;
-    border-radius: 4px;
-    font-family: "Palatino Linotype", sans-serif;
-    font-size: 40px;
-    text-align: center;
 }
