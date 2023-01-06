@@ -11,20 +11,20 @@
 <body>
     <div class="center">
         {# White box in the center #}
-        <div class="console">
-
-        </div>
+        {% if user.is_authenticated %}
+            <div class="console">
+                <h3>Your Exercises</h3>
+                {% for exercise in exercises %}
+                    {{ exercise.name }}
+                {% endfor %}
+            </div>
         {# Button to start/stop #}
-        <button class="trigger_workout_button">Start Exercise</button>
-
-        {# Count in section (numbers and text are controlled in JS) #}
-        <div id="count_text" class="count_text" style="visibility: hidden"></div>
-        <div class="count_in" style="visibility: visible">
-            <div id="count_1" class="count" style="visibility:hidden"></div>
-            <div id="count_2" class="count" style="visibility:hidden"></div>
-            <div id="count_3" class="count" style="visibility:hidden"></div>
-            <div id="count_4" class="count" style="visibility:hidden"></div>
-        </div>
+        <button class="create_exercise_button" onclick="{% url "create_exercise" %}">Create Exercise</button>
+        {% else %}
+            <div class="console">
+                Please log in to create an exercise!
+            </div>
+        {% endif %}
     </div>
 </body>
 </html>

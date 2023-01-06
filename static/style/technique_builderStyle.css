@@ -19,62 +19,19 @@ body {
     margin-top: 3%;
 }
 
-.metronome {
+.console {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 5%;
-}
-
-.metronome select {  /* Click sound select */
-    font-size: 20px;
-}
-
-.controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 5%;
-}
-
-/* Adds border around input */
-.controls select {
-    outline: solid thin;
-    margin: 0 5px;
-}
-.controls input {
-    outline: solid thin;
-    margin: 0 5px;
-}
-
-/* Removes arrows */
-.controls input::-webkit-outer-spin-button,
-.controls input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.controls hr{
-    width: 100%;
-}
-
-.console { /* Image and control board */
-    display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 20px;
-    padding: 10px 5px;
+    padding: 10px 20px;
 }
 
-.trigger_workout_button {
+.create_exercise_button {
     background-color: var(--techniquethemecolor);
     border: none;
     padding: 15px 32px;
@@ -88,32 +45,6 @@ body {
     border-radius: 4px;
 }
 
-.trigger_workout_button:hover {
+.create_exercise_button:hover {
     background-color: var(--techniquethemecolor-lighter);
-}
-
-.count_text{
-    padding: 0 25px;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 5px;
-    color: var(--fontcolor);
-}
-
-.count_in{
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.count{
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: var(--techniquethemecolor);
-    margin-left: 12px;
-    margin-right: 12px;
-    padding: 0 25px;
-    font-size: 35px;
-    color: var(--fontcolor);
 }

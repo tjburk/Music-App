@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'music_app',
+    'technique_builder',
 
     'allauth',
     'allauth.account',
