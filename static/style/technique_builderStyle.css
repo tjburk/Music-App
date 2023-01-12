@@ -31,10 +31,35 @@ body {
     padding: 10px 20px;
 }
 
+.console h3 {
+    margin-top: 10px;
+}
+
 .console table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     padding: 5px;
+}
+
+.helptext{
+    font-size: 15px;
+}
+
+#id_name {
+}
+#id_description {
+    width: 200px;
+    height: 75px;
+}
+#id_sets {
+    width: 50px;
+}
+#id_starting_bpm {
+    width: 50px;
+}
+#id_dynamic {
+    height: 25px;
+    width: 25px;
 }
 
 .create_exercise_button {

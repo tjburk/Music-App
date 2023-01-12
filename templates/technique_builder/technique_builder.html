@@ -17,16 +17,20 @@
                     <table>
                         <tr>
                             <th>Name</th>
+                            <th>Description</th>
                             <th>Sets</th>
-                            <th>Starting Bpm</th>
                             <th>Current Bpm</th>
+                            <th>Dynamic?</th>
+                            <th>Completions</th>
                         </tr>
                         {% for exercise in exercises %}
                         <tr>
                             <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.description }}</td>
                             <td>{{ exercise.sets }}</td>
-                            <td>{{ exercise.starting_bpm }}</td>
                             <td>{{ exercise.current_bpm }}</td>
+                            <td>{{ exercise.dynamic }}</td>
+                            <td>{{ exercise.completions }}</td>
                         </tr>
                         {% endfor %}
                     </table>
