@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Exercise</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/music_note.png' %}">
+    <link rel="stylesheet" href="{% static 'style/technique_builderStyle.css' %}">
 </head>
+{% include 'music_app/navbar.html' %}
 <body>
-
+    <div class="center">
+        {# White box in the center #}
+        <div class="console">
+            <h3>Create a New Exercise</h3>
+            <form id="exercise_form" method="POST" action="{% url "technique_builder" %}">
+                {% csrf_token %}
+                <table>{{ exercise_form }}</table>
+            </form>
+        </div>
+        <input form="exercise_form" class="create_exercise_button" type="submit">
+    </div>
 </body>
 </html>

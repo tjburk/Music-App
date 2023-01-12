@@ -14,12 +14,25 @@
         {% if user.is_authenticated %}
             <div class="console">
                 <h3>Your Exercises</h3>
-                {% for exercise in exercises %}
-                    {{ exercise.name }}
-                {% endfor %}
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Sets</th>
+                            <th>Starting Bpm</th>
+                            <th>Current Bpm</th>
+                        </tr>
+                        {% for exercise in exercises %}
+                        <tr>
+                            <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.sets }}</td>
+                            <td>{{ exercise.starting_bpm }}</td>
+                            <td>{{ exercise.current_bpm }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
             </div>
         {# Button to start/stop #}
-        <button class="create_exercise_button" onclick="{% url "create_exercise" %}">Create Exercise</button>
+        <a class="create_exercise_button" href="{% url "create_exercise" %}">Create New Exercise</a>
         {% else %}
             <div class="console">
                 Please log in to create an exercise!

@@ -7,7 +7,7 @@ class Exercise(models.Model):
     name = models.CharField(max_length=50)
     sets = models.IntegerField()
     starting_bpm = models.IntegerField()
-    current_bpm = models.IntegerField(default=starting_bpm)
+    current_bpm = models.IntegerField()
     mistakes = models.IntegerField(default=0)
 
     def __str__(self):
